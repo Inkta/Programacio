@@ -53,7 +53,7 @@ public class Soldat {
 	}
 
 	public boolean Moure() {
-		int vel = (int)(Math.random()*2);
+		int vel = (int)(Math.random()*9);
 		if (this.dret) {
 			if (fi() && mov) {
 				this.getImatge().move(vel, 0);
@@ -83,11 +83,11 @@ public class Soldat {
 
 	public boolean fi() {
 		if (this.dret) {
-			if (this.imatge.getX() == extrems[1]) {
+			if (this.imatge.getX() > extrems[1]) {
 				return false;
 			}
 		} else {
-			if (this.imatge.getX() == extrems[0]) {
+			if (this.imatge.getX() < extrems[0]) {
 				return false;
 			}
 		}
