@@ -5,16 +5,18 @@ import java.util.ArrayList;
 import acm.program.GraphicsProgram;
 
 public class joc extends GraphicsProgram {
+
 	public final void run() {
-	setSize(800,600);
+	setSize(1200,800);
 	pause(100);
-	int finalpantalla = getWidth() - 50;
+	double finalpantalla = getWidth() - 50;
+	double[] extrems = {0,finalpantalla};
 	ArrayList<Soldat> exercit1 = new ArrayList<Soldat>();
 	ArrayList<Soldat> exercit2 = new ArrayList<Soldat>();
 	Camp guerra = new Camp(this, exercit1, exercit2);
 	General General = new General(this);
-	exercit1 = General.afegirSoldats(exercit1,"alien.png", false);
-	exercit2 = General.afegirSoldats(exercit2,"romano.png",true);
+	exercit1 = General.afegirSoldats(exercit1,"esponja.png", false,extrems);
+	exercit2 = General.afegirSoldats(exercit2,"patricio.png",true,extrems);
 
 	guerra.Guerra();
 	System.out.println("Final de la Batalla");

@@ -5,17 +5,18 @@ import acm.graphics.GRectangle;
 
 public class Soldat {
 	public static final double mida = 50;
-	double[] extrems = {0,750};
+	double[] extrems;
 	GImage imatge;
 	boolean dret;
 	boolean mov = false;
-	
-	public Soldat(String a, boolean b) {
+
+	public Soldat(String a, boolean b, double[] extrems) {
 		imatge = new GImage(a);
 		imatge.setSize(mida,mida);
 		dret = b;
+		this.extrems = extrems;
 	}
-	
+
 	public double getLloc() {
 		if (dret) {
 			return extrems[1];
@@ -53,7 +54,7 @@ public class Soldat {
 	}
 
 	public boolean Moure() {
-		int vel = (int)(Math.random()*9);
+		int vel = (int)(Math.random()*2);
 		if (this.dret) {
 			if (fi() && mov) {
 				this.getImatge().move(vel, 0);
@@ -64,15 +65,15 @@ public class Soldat {
 			}
 		} else {
 			if (fi() && mov) {
-			    this.getImatge().move(-vel, 0);
-			    return true;
+				this.getImatge().move(-vel, 0);
+				return true;
 			} else {
 				para();
 				return false;
 			}
 		}
 	}
-	
+
 	public boolean isMov() {
 		return mov;
 	}
@@ -91,14 +92,14 @@ public class Soldat {
 				return false;
 			}
 		}
-		
+
 		return true;
 	}
-	
+
 	public void para() {
 		mov = false;
 	}
-	
+
 	public boolean ComprovaMort(Soldat a) {
 		if (this.imatge.getBounds().intersects(a.imatge.getBounds())) {
 			return true;

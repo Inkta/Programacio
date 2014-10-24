@@ -4,14 +4,14 @@ import java.util.ArrayList;
 
 public class General {
 	static joc pantalla;
-	
+	private final int combatents = 30;
 	public General(joc pantalla) {
 		this.pantalla = pantalla;
 	}
 
-	public ArrayList<Soldat> afegirSoldats(ArrayList<Soldat> a, String imatge, boolean direccio) {
-		for (int i=0; i < 20; i++) {
-			a.add(new Soldat(imatge, direccio));
+	public ArrayList<Soldat> afegirSoldats(ArrayList<Soldat> a, String imatge, boolean direccio, double[] extrems) {
+		for (int i=0; i < combatents; i++) {
+			a.add(new Soldat(imatge, direccio, extrems));
 		}
 		return a;
 	}
@@ -29,7 +29,7 @@ public class General {
 		}else {
 			num = num * -1;
 		}
-		
+
 		for (int i=0; i < exerc.size(); i++) {
 			int fila = (int)(Math.random()*files);
 			exerc.get(i).setPosicio(exerc.get(i).getLloc(), fila*75);
@@ -60,7 +60,7 @@ public class General {
 		}
 		pantalla.pause(2);
 		return extremistes;
-		
+
 	}
 
 }
