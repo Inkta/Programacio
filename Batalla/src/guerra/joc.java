@@ -5,13 +5,9 @@ import java.util.ArrayList;
 import acm.program.GraphicsProgram;
 
 public class joc extends GraphicsProgram {
-
-
 	public final void run() {
 	setSize(800,600);
 	pause(100);
-	
-	
 	int finalpantalla = getWidth() - 50;
 	ArrayList<Soldat> exercit1 = new ArrayList<Soldat>();
 	ArrayList<Soldat> exercit2 = new ArrayList<Soldat>();
