@@ -2,16 +2,24 @@ package Heredada;
 
 import java.util.ArrayList;
 
+import acm.graphics.GImage;
+
 public class General {
 	static joc pantalla;
-	private final int combatents = 15;
+	private final int Forts = 3;
+	private final int Normals = 15;
 	public General(joc pantalla) {
 		this.pantalla = pantalla;
 	}
 
-	public ArrayList<Soldat> afegirSoldats(ArrayList<Soldat> a, String imatge,String imatge2,int c, boolean direccio, int d, double[] extrems) {
-		for (int i=0; i < combatents; i++) {
-			a.add(new SoldatNormal(imatge,imatge2,c, direccio,d,extrems));
+	public ArrayList<Soldat> afegirSoldats(ArrayList<Soldat> a, String imatge,String imatge2,String imatgeF,String imatge2F,int c, boolean direccio, int d, double[] extrems) {
+
+		for (int i=0; i < Normals; i++) {
+			a.add(new SoldatNormal(new GImage(imatge),new GImage(imatge2),c, direccio,d,extrems));
+		}
+
+		for (int i=0; i < Forts; i++) {
+			a.add(new SoldatFort(new GImage(imatgeF),new GImage(imatge2F),c, direccio,d,extrems));
 		}
 		return a;
 	}
@@ -20,6 +28,19 @@ public class General {
 	public void Reclutar(ArrayList<Soldat> exerc, joc pantalla) {
 		for (int i=0; i < exerc.size(); i++) {
 			pantalla.add(exerc.get(i).getImatge());
+		}
+	}
+
+	public void Perdre(ArrayList<Soldat> exerc, joc pantalla) {
+		for (int i=0; i < exerc.size(); i++) {
+			pantalla.remove(exerc.get(i).getImatge());
+		}
+	}
+
+	public void GireuVos(ArrayList<Soldat> exerc) {
+		for (int i=0; i < exerc.size(); i++) {
+			exerc.get(i).canviaImatge();
+			System.out.println("Girat " + i);
 		}
 	}
 
@@ -47,8 +68,11 @@ public class General {
 				}
 			}
 			exerc.get(i).setPosicio(exerc.get(i).getImatge().getX()+despl, exerc.get(i).getImatge().getY());
+			pantalla.pause(5);
 		}
+
 	}
+
 
 	public int Acorrer(ArrayList<Soldat> exerc, joc pantalla) {
 		int extremistes = 0; //contador per controlar si arriben al extrem del camp

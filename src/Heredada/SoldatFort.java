@@ -1,13 +1,11 @@
 package Heredada;
-import java.awt.Image;
 
 import acm.graphics.GImage;
-import acm.graphics.GRectangle;
 
-public class SoldatNormal extends Soldat{
-
-	public SoldatNormal(GImage a, GImage a2, int b, boolean c, int d, double[] e) {
-		super (a,a2,b,c,d,e);
+public class SoldatFort extends Soldat{
+	public SoldatFort(GImage a, GImage a2, int b, boolean c, int d, double[] e) {
+		super(a,a2,b,c,d,e);
+		this.setVida(5);
 	}
 
 	public boolean Moure(){
@@ -28,7 +26,4 @@ public class SoldatNormal extends Soldat{
 	}
 		return false;
 	}
-
-
 }
-

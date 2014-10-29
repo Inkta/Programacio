@@ -32,6 +32,12 @@ public class Camp {
 		General.Formar(exerc, pantalla, 60, files);
 	}
 
+	public void Neteja(ArrayList<Soldat> exerc ) {
+		for (int i=0; i < exerc.size(); i++) {
+			pantalla.remove(exerc.get(i).getImatge());
+		}
+	}
+
 	public void Guerra() {
 		General.Reclutar(exerc1, pantalla);
 		General.Reclutar(exerc2, pantalla);
@@ -42,10 +48,16 @@ public class Camp {
 		while (exerc1.size() != 0 && exerc2.size() != 0) {
 
 			if (General.Acorrer(exerc1, pantalla) == exerc1.size()) {
+				General.Perdre(exerc1, pantalla);
+				General.GireuVos(exerc1);
+				General.Reclutar(exerc1, pantalla);
 				Formacio(exerc1);
 			}
 
 			if (General.Acorrer(exerc2, pantalla) == exerc2.size()) {
+				General.Perdre(exerc2, pantalla);
+				General.GireuVos(exerc2);
+				General.Reclutar(exerc2, pantalla);
 				Formacio(exerc2);
 			}
 
@@ -61,7 +73,8 @@ public class Camp {
 
 				for (int i=0; i < exerc1.size(); i++) {
 					for (int a=0; a < exerc2.size(); a++) {
-						if (exerc1.get(i).ComprovaMort(exerc2.get(a).getImatge())) {
+						exerc1.get(i).ComprovaMort(exerc2.get(a));
+						if (exerc2.get(a).getVida() == 0) {
 							pantalla.remove(exerc2.get(a).getImatge());
 							exerc2.remove(a);
 							a--;
@@ -74,7 +87,8 @@ public class Camp {
 
 				for (int i=0; i < exerc2.size(); i++) {
 					for (int a=0; a < exerc1.size(); a++) {
-						if (exerc2.get(i).ComprovaMort(exerc1.get(a).getImatge())) {
+						exerc2.get(i).ComprovaMort(exerc1.get(a));
+						if (exerc1.get(a).getVida() == 0) {
 							pantalla.remove(exerc1.get(a).getImatge());
 							exerc1.remove(a);
 							a--;

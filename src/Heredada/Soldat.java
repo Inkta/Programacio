@@ -3,30 +3,33 @@ package Heredada;
 import acm.graphics.GImage;
 
 public abstract class Soldat {
+	public static final double mida = 50;
 	int vel;
 	boolean direccio;
 	int vida;
 	GImage imatge;
-	protected boolean mov = false;
-	String imatgedreta;
-	String imatgeesquerra;
+	protected boolean mov = true;
+	GImage imatgedreta;
+	GImage imatgeesquerra;
 	double[] extrems;
 
-	public Soldat(String a, String a2, int b, boolean c, int d, double[] e) {
+	public Soldat(GImage a, GImage a2, int b, boolean c, int d, double[] e) {
 		imatgedreta = a;
+		imatgedreta.setSize(mida,mida);
 		imatgeesquerra = a2;
-		this.canviaImatge(imatgedreta,imatgeesquerra);
-		vel = b;
+		imatgeesquerra.setSize(mida,mida);
 		direccio = c;
+		this.canviaImatge();
+		vel = b;
 		vida = d;
 		extrems = e;
 	}
 
-	public void canviaImatge(String a, String a2) {
-		if (direccio) {
-			imatge = new GImage(a);
+	public void canviaImatge() {
+		if (!direccio) {
+			imatge = imatgedreta;
 		} else {
-			imatge = new GImage(a2);
+			imatge = imatgeesquerra;
 		}
 	}
 
@@ -34,11 +37,18 @@ public abstract class Soldat {
 		return false;
 	}
 
-	public boolean ComprovaMort(GImage imatge){
-		return false;
+	public int restarVida() {
+		this.vida = this.vida - 1;
+		return this.vida;
 	}
-	public void CanviaDireccio(){}
-	public void GiraImatge(){}
+
+	public void ComprovaMort(Soldat a){
+		System.out.println(this.getVida());
+		if (this.getImatge().getBounds().intersects(a.getImatge().getBounds())) {
+			a.restarVida();
+		}
+	}
+
 
 	public GImage getImatge() {
 		return imatge;
