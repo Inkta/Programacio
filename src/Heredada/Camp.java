@@ -29,7 +29,7 @@ public class Camp {
 
 		int files = Fila();
 
-		General.Formar(exerc, pantalla, 60, files);
+		General.Formar(exerc, pantalla, 76, files);
 	}
 
 	public void Neteja(ArrayList<Soldat> exerc ) {

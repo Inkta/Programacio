@@ -9,7 +9,7 @@ public class joc extends GraphicsProgram {
 	public final void run() {
 	setSize(1200,800);
 	pause(100);
-	double finalpantalla = getWidth() - 50;
+	double finalpantalla = getWidth() - 75;
 	double[] extrems = {0,finalpantalla};
 	ArrayList<Soldat> exercit1 = new ArrayList<Soldat>();
 	ArrayList<Soldat> exercit2 = new ArrayList<Soldat>();

@@ -1,9 +1,8 @@
 package Heredada;
-
 import acm.graphics.GImage;
 
 public abstract class Soldat {
-	public static final double mida = 50;
+	public static final double mida = 75;
 	int vel;
 	boolean direccio;
 	int vida;
@@ -12,7 +11,6 @@ public abstract class Soldat {
 	GImage imatgedreta;
 	GImage imatgeesquerra;
 	double[] extrems;
-	
 
 	public Soldat(GImage a, GImage a2, int b, boolean c, int d, double[] e) {
 		imatgedreta = a;

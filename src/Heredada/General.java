@@ -64,7 +64,7 @@ public class General {
 
 		for (int i=0; i < exerc.size(); i++) {
 			int fila = (int)(Math.random()*files);
-			exerc.get(i).setPosicio(exerc.get(i).getLloc(), fila*75);
+			exerc.get(i).setPosicio(exerc.get(i).getLloc(), fila*76);
 			exerc.get(i).setMov(true);
 			exerc.get(i).setDireccio(!exerc.get(i).getDireccio());
 		}

@@ -27,13 +27,4 @@ public class SoldatNinja extends Soldat {
 	}
 		return true;
 	}
-	
-
-	
-	public void ComprovaMort(Soldat a, double b, joc pantalla){
-		if (a.getImatge().getBounds().intersects(this.getImatge().getBounds())) {
-			this.restarVida();
-		}
-	}
-	
 }

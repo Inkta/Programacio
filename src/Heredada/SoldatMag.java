@@ -9,7 +9,7 @@ public class SoldatMag extends Soldat {
 	
 	public SoldatMag(GImage a, GImage a2, int b, boolean c, int d, double[] e) {
 		super (a,a2,b,c,d,e);
-		bola.setSize(50,50);
+		bola.setSize(this.mida,this.mida);
 	}
 	
 	public void ComprovaMort(Soldat a, double b, joc pantalla){
@@ -22,7 +22,7 @@ public class SoldatMag extends Soldat {
 		}
 		
 		if (this.getImatge().getBounds().intersects(a.getImatge().getBounds())) {
-			a.restarVida();
+			this.restarVida();
 		}
 	}
 
