@@ -9,9 +9,9 @@ public class General {
 		this.pantalla = pantalla;
 	}
 
-	public ArrayList<Soldat> afegirSoldats(ArrayList<Soldat> a, String imatge, boolean direccio, double[] extrems) {
+	public ArrayList<Soldat> afegirSoldats(ArrayList<Soldat> a, String imatge,String imatge2,int c, boolean direccio, int d, double[] extrems) {
 		for (int i=0; i < combatents; i++) {
-			a.add(new Soldat(imatge, direccio, extrems));
+			a.add(new SoldatNormal(imatge,imatge2,c, direccio,d,extrems));
 		}
 		return a;
 	}
@@ -26,7 +26,7 @@ public class General {
 	public void Formar(ArrayList<Soldat> exerc, joc pantalla, int num, int files) {
 		if (num > exerc.get(0).getLloc()) {
 			num = num * 1;
-		}else {
+		} else {
 			num = num * -1;
 		}
 
@@ -34,7 +34,7 @@ public class General {
 			int fila = (int)(Math.random()*files);
 			exerc.get(i).setPosicio(exerc.get(i).getLloc(), fila*75);
 			exerc.get(i).setMov(true);
-			exerc.get(i).setDret(!exerc.get(i).getDireccio());
+			exerc.get(i).setDireccio(!exerc.get(i).getDireccio());
 		}
 
 		pantalla.pause(100);

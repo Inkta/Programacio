@@ -1,41 +1,44 @@
 package Heredada;
-import java.awt.Image;
+
 import acm.graphics.GImage;
-import acm.graphics.GRectangle;
 
-public class Soldat {
-	public static final double mida = 75;
-	double[] extrems;
+public abstract class Soldat {
+	int vel;
+	boolean direccio;
+	int vida;
 	GImage imatge;
-	boolean dret;
-	boolean mov = false;
+	protected boolean mov = false;
+	String imatgedreta;
+	String imatgeesquerra;
+	double[] extrems;
 
-	public Soldat(String a, boolean b, double[] extrems) {
-		imatge = new GImage(a);
-		imatge.setSize(mida,mida);
-		dret = b;
-		this.extrems = extrems;
+	public Soldat(String a, String a2, int b, boolean c, int d, double[] e) {
+		imatgedreta = a;
+		imatgeesquerra = a2;
+		this.canviaImatge(imatgedreta,imatgeesquerra);
+		vel = b;
+		direccio = c;
+		vida = d;
+		extrems = e;
 	}
 
-	public double getLloc() {
-		if (dret) {
-			return extrems[1];
+	public void canviaImatge(String a, String a2) {
+		if (direccio) {
+			imatge = new GImage(a);
 		} else {
-			return extrems[0];
+			imatge = new GImage(a2);
 		}
 	}
 
-	public void setPosicio(double d,double e) {
-		imatge.setLocation(d,e);
-	}
-
-	public boolean getDireccio() {
-		return dret;
-	}
-
-	public boolean mata() {
+	public boolean Moure(){
 		return false;
 	}
+
+	public boolean ComprovaMort(GImage imatge){
+		return false;
+	}
+	public void CanviaDireccio(){}
+	public void GiraImatge(){}
 
 	public GImage getImatge() {
 		return imatge;
@@ -45,67 +48,48 @@ public class Soldat {
 		this.imatge = imatge;
 	}
 
-	public boolean isDret() {
-		return dret;
+	public int getVel() {
+		return vel;
 	}
 
-	public void setDret(boolean dret) {
-		this.dret = dret;
+	public void setVel(int vel) {
+		this.vel = vel;
 	}
 
-	public boolean Moure() {
-		int vel = (int)(Math.random()*2);
-		if (this.dret) {
-			if (fi() && mov) {
-				this.getImatge().move(vel, 0);
-				return true;
-			} else {
-				para();
-				return false;
-			}
+	public boolean isDireccio() {
+		return direccio;
+	}
+
+	public void setDireccio(boolean direccio) {
+		this.direccio = direccio;
+	}
+
+	public int getVida() {
+		return vida;
+	}
+
+	public void setVida(int vida) {
+		this.vida = vida;
+	}
+
+	public void setPosicio(double d,double e) {
+		imatge.setLocation(d,e);
+	}
+
+	public double getLloc() {
+		if (direccio) {
+			return extrems[1];
 		} else {
-			if (fi() && mov) {
-				this.getImatge().move(-vel, 0);
-				return true;
-			} else {
-				para();
-				return false;
-			}
+			return extrems[0];
 		}
-	}
-
-	public boolean isMov() {
-		return mov;
 	}
 
 	public void setMov(boolean mov) {
 		this.mov = mov;
 	}
 
-	public boolean fi() {
-		if (this.dret) {
-			if (this.imatge.getX() > extrems[1]) {
-				return false;
-			}
-		} else {
-			if (this.imatge.getX() < extrems[0]) {
-				return false;
-			}
-		}
-
-		return true;
+	public boolean getDireccio() {
+		return this.direccio;
 	}
-
-	public void para() {
-		mov = false;
-	}
-
-	public boolean ComprovaMort(Soldat a) {
-		if (this.imatge.getBounds().intersects(a.imatge.getBounds())) {
-			return true;
-		}
-		return false;
-	}
-
 
 }

@@ -61,7 +61,7 @@ public class Camp {
 
 				for (int i=0; i < exerc1.size(); i++) {
 					for (int a=0; a < exerc2.size(); a++) {
-						if (exerc1.get(i).ComprovaMort(exerc2.get(a))) {
+						if (exerc1.get(i).ComprovaMort(exerc2.get(a).getImatge())) {
 							pantalla.remove(exerc2.get(a).getImatge());
 							exerc2.remove(a);
 							a--;
@@ -74,7 +74,7 @@ public class Camp {
 
 				for (int i=0; i < exerc2.size(); i++) {
 					for (int a=0; a < exerc1.size(); a++) {
-						if (exerc2.get(i).ComprovaMort(exerc1.get(a))) {
+						if (exerc2.get(i).ComprovaMort(exerc1.get(a).getImatge())) {
 							pantalla.remove(exerc1.get(a).getImatge());
 							exerc1.remove(a);
 							a--;
