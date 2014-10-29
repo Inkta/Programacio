@@ -6,14 +6,20 @@ import acm.graphics.GImage;
 
 public class General {
 	static joc pantalla;
+	private final int ninjas = 2;
 	private final int Forts = 3;
+	private final int mags = 1;
 	private final int Normals = 15;
 	public General(joc pantalla) {
 		this.pantalla = pantalla;
 	}
 
-	public ArrayList<Soldat> afegirSoldats(ArrayList<Soldat> a, String imatge,String imatge2,String imatgeF,String imatge2F,int c, boolean direccio, int d, double[] extrems) {
+	public ArrayList<Soldat> afegirSoldats(ArrayList<Soldat> a, String imatge,String imatge2,String imatgeF,String imatge2F,String imatgeM,String imatge2M,String imatgeN,String imatge2N,int c, boolean direccio, int d, double[] extrems) {
 
+		for (int i=0; i < ninjas; i++) {
+			a.add(new SoldatNinja(new GImage(imatgeN),new GImage(imatge2N),c, direccio,d,extrems));
+		}
+		
 		for (int i=0; i < Normals; i++) {
 			a.add(new SoldatNormal(new GImage(imatge),new GImage(imatge2),c, direccio,d,extrems));
 		}
@@ -21,6 +27,12 @@ public class General {
 		for (int i=0; i < Forts; i++) {
 			a.add(new SoldatFort(new GImage(imatgeF),new GImage(imatge2F),c, direccio,d,extrems));
 		}
+		
+		for (int i=0; i < mags; i++) {
+			a.add(new SoldatMag(new GImage(imatgeM),new GImage(imatge2M),c, direccio,d,extrems));
+		}
+		
+		
 		return a;
 	}
 
@@ -40,7 +52,6 @@ public class General {
 	public void GireuVos(ArrayList<Soldat> exerc) {
 		for (int i=0; i < exerc.size(); i++) {
 			exerc.get(i).canviaImatge();
-			System.out.println("Girat " + i);
 		}
 	}
 
@@ -82,7 +93,7 @@ public class General {
 				extremistes++;
 			}
 		}
-		pantalla.pause(2);
+		pantalla.pause(25);
 		return extremistes;
 
 	}

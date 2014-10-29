@@ -66,17 +66,18 @@ public class Camp {
 			}
 		}
 
+
 	public void comprovaMort() {
 		int tir = (int)(Math.random()*2);
 		switch (tir) {
 			case 0:
 
-				for (int i=0; i < exerc1.size(); i++) {
-					for (int a=0; a < exerc2.size(); a++) {
-						exerc1.get(i).ComprovaMort(exerc2.get(a));
-						if (exerc2.get(a).getVida() == 0) {
-							pantalla.remove(exerc2.get(a).getImatge());
-							exerc2.remove(a);
+				for (int i=0; i < exerc2.size(); i++) {
+					for (int a=0; a < exerc1.size(); a++) {
+						exerc1.get(a).ComprovaMort(exerc2.get(i), Math.random()*1, pantalla);
+						if (exerc1.get(a).getVida() == 0) {
+							pantalla.remove(exerc1.get(a).getImatge());
+							exerc1.remove(a);
 							a--;
 						}
 					}
@@ -85,12 +86,12 @@ public class Camp {
 				break;
 			case 1:
 
-				for (int i=0; i < exerc2.size(); i++) {
-					for (int a=0; a < exerc1.size(); a++) {
-						exerc2.get(i).ComprovaMort(exerc1.get(a));
-						if (exerc1.get(a).getVida() == 0) {
-							pantalla.remove(exerc1.get(a).getImatge());
-							exerc1.remove(a);
+				for (int i=0; i < exerc1.size(); i++) {
+					for (int a=0; a < exerc2.size(); a++) {
+						exerc2.get(a).ComprovaMort(exerc1.get(i), Math.random()*1, pantalla);
+						if (exerc2.get(a).getVida() == 0) {
+							pantalla.remove(exerc2.get(a).getImatge());
+							exerc2.remove(a);
 							a--;
 						}
 					}

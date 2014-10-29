@@ -10,7 +10,7 @@ public class SoldatFort extends Soldat{
 
 	public boolean Moure(){
 		if (mov) {
-			int vel = (int)(Math.random()*2);
+			int vel = (int)(Math.random()*6);
 			if (direccio) {
 				if (this.getImatge().getX() < extrems[1]) {
 					this.getImatge().move(vel, 0);

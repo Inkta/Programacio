@@ -12,6 +12,7 @@ public abstract class Soldat {
 	GImage imatgedreta;
 	GImage imatgeesquerra;
 	double[] extrems;
+	
 
 	public Soldat(GImage a, GImage a2, int b, boolean c, int d, double[] e) {
 		imatgedreta = a;
@@ -42,10 +43,9 @@ public abstract class Soldat {
 		return this.vida;
 	}
 
-	public void ComprovaMort(Soldat a){
-		System.out.println(this.getVida());
-		if (this.getImatge().getBounds().intersects(a.getImatge().getBounds())) {
-			a.restarVida();
+	public void ComprovaMort(Soldat a, double b, joc pantalla){
+		if (a.getImatge().getBounds().intersects(this.getImatge().getBounds())) {
+			this.restarVida();
 		}
 	}
 

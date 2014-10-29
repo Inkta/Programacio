@@ -1,0 +1,29 @@
+package Heredada;
+
+import java.util.ArrayList;
+
+import acm.graphics.GImage;
+
+public class SoldatMag extends Soldat {
+	GImage bola = new GImage("fire.png");
+	
+	public SoldatMag(GImage a, GImage a2, int b, boolean c, int d, double[] e) {
+		super (a,a2,b,c,d,e);
+		bola.setSize(50,50);
+	}
+	
+	public void ComprovaMort(Soldat a, double b, joc pantalla){
+		if (b > 0.999){
+			pantalla.add(bola);
+			bola.setLocation(a.getImatge().getX(), a.getImatge().getY());
+			a.restarVida();
+			pantalla.pause(100);
+			pantalla.remove(bola);
+		}
+		
+		if (this.getImatge().getBounds().intersects(a.getImatge().getBounds())) {
+			a.restarVida();
+		}
+	}
+
+}
