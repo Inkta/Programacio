@@ -94,7 +94,7 @@ public class General {
 			}
 		}
 
-		pantalla.pause(100);
+		pantalla.pause(20);
 		return extremistes;
 
 	}

@@ -26,7 +26,7 @@ public abstract class Soldat {
 		extrems = e;
 	}
 
-	public void Dispara(double[] a, ArrayList<Soldat> b) {
+	public void Dispara(Soldat c) {
 
 	}
 

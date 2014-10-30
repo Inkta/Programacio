@@ -76,11 +76,8 @@ public class Camp {
 				for (int i=0; i < exerc2.size(); i++) {
 					for (int a=0; a < exerc1.size(); a++) {
 						double num = Math.random();
-						if (num > 0.9) {
-							System.out.println("Hola");
-							exerc2.get(i).Dispara(extrems,exerc2);
-						}
 						exerc1.get(a).ComprovaMort(exerc2.get(i), num, pantalla);
+
 						if (exerc1.get(a).getVida() == 0) {
 							pantalla.remove(exerc1.get(a).getImatge());
 							exerc1.remove(a);
@@ -95,11 +92,7 @@ public class Camp {
 				for (int i=0; i < exerc1.size(); i++) {
 					for (int a=0; a < exerc2.size(); a++) {
 						double num = Math.random();
-						if (num > 0.9) {
-							System.out.println("Hola");
-							exerc1.get(i).Dispara(extrems,exerc1);
-						}
-						exerc2.get(a).ComprovaMort(exerc1.get(i), Math.random()*1, pantalla);
+						exerc2.get(a).ComprovaMort(exerc1.get(i), num, pantalla);
 						if (exerc2.get(a).getVida() == 0) {
 							pantalla.remove(exerc2.get(a).getImatge());
 							exerc2.remove(a);

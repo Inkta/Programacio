@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import acm.graphics.GImage;
 
 public class SoldatNinja extends Soldat {
-	int disparador = 0;
 	public SoldatNinja(GImage a, GImage a2, int b, boolean c, int d, double[] e) {
 		super (a,a2,b,c,d,e);
 	}
@@ -36,13 +35,5 @@ public class SoldatNinja extends Soldat {
 			this.restarVida();
 		}
 	}
-
-	public void Dispara(double[] a, ArrayList<Soldat> b) {
-		if (disparador < 3) {
-			disparador++;
-			b.add(new Estrella (new GImage(""),new GImage(""),0, true, 0,a,10,1));
-		}
-
-	}
-
 }
+
