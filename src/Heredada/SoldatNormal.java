@@ -14,12 +14,12 @@ public class SoldatNormal extends Soldat{
 		if (mov) {
 			int vel = (int)(Math.random()*6);
 			if (direccio) {
-				if (this.getImatge().getX() < extrems[1]) {
+				if (this.getImatge().getX() <= extrems[1]) {
 					this.getImatge().move(vel, 0);
 					return true;
 				}
 			} else {
-				if (this.getImatge().getX() > extrems[0]) {
+				if (this.getImatge().getX() >= extrems[0]) {
 					this.getImatge().move(-vel, 0);
 					return true;
 				}

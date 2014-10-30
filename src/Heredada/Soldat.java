@@ -1,4 +1,6 @@
 package Heredada;
+import java.util.ArrayList;
+
 import acm.graphics.GImage;
 
 public abstract class Soldat {
@@ -22,6 +24,10 @@ public abstract class Soldat {
 		vel = b;
 		vida = d;
 		extrems = e;
+	}
+
+	public void Dispara(double[] a, ArrayList<Soldat> b) {
+
 	}
 
 	public void canviaImatge() {

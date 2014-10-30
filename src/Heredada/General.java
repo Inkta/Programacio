@@ -19,7 +19,7 @@ public class General {
 		for (int i=0; i < ninjas; i++) {
 			a.add(new SoldatNinja(new GImage(imatgeN),new GImage(imatge2N),c, direccio,d,extrems));
 		}
-		
+
 		for (int i=0; i < Normals; i++) {
 			a.add(new SoldatNormal(new GImage(imatge),new GImage(imatge2),c, direccio,d,extrems));
 		}
@@ -27,12 +27,12 @@ public class General {
 		for (int i=0; i < Forts; i++) {
 			a.add(new SoldatFort(new GImage(imatgeF),new GImage(imatge2F),c, direccio,d,extrems));
 		}
-		
+
 		for (int i=0; i < mags; i++) {
 			a.add(new SoldatMag(new GImage(imatgeM),new GImage(imatge2M),c, direccio,d,extrems));
 		}
-		
-		
+
+
 		return a;
 	}
 
@@ -93,7 +93,8 @@ public class General {
 				extremistes++;
 			}
 		}
-		pantalla.pause(25);
+
+		pantalla.pause(100);
 		return extremistes;
 
 	}

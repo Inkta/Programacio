@@ -7,11 +7,12 @@ public class Camp {
 	ArrayList<Soldat> exerc1;
 	ArrayList<Soldat> exerc2;
 	General General = new General(pantalla);
-
-	public Camp(final joc pan, ArrayList<Soldat> a, ArrayList<Soldat> b) {
+	double[] extrems;
+	public Camp(final joc pan, ArrayList<Soldat> a, ArrayList<Soldat> b,double[] f) {
 		exerc1 = a;
 		exerc2 = b;
 		pantalla = pan;
+		extrems = f;
 	}
 
 	public int Fila() {
@@ -74,7 +75,12 @@ public class Camp {
 
 				for (int i=0; i < exerc2.size(); i++) {
 					for (int a=0; a < exerc1.size(); a++) {
-						exerc1.get(a).ComprovaMort(exerc2.get(i), Math.random()*1, pantalla);
+						double num = Math.random();
+						if (num > 0.9) {
+							System.out.println("Hola");
+							exerc2.get(i).Dispara(extrems,exerc2);
+						}
+						exerc1.get(a).ComprovaMort(exerc2.get(i), num, pantalla);
 						if (exerc1.get(a).getVida() == 0) {
 							pantalla.remove(exerc1.get(a).getImatge());
 							exerc1.remove(a);
@@ -88,6 +94,11 @@ public class Camp {
 
 				for (int i=0; i < exerc1.size(); i++) {
 					for (int a=0; a < exerc2.size(); a++) {
+						double num = Math.random();
+						if (num > 0.9) {
+							System.out.println("Hola");
+							exerc1.get(i).Dispara(extrems,exerc1);
+						}
 						exerc2.get(a).ComprovaMort(exerc1.get(i), Math.random()*1, pantalla);
 						if (exerc2.get(a).getVida() == 0) {
 							pantalla.remove(exerc2.get(a).getImatge());
