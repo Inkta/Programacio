@@ -13,8 +13,9 @@ public abstract class Soldat {
 	GImage imatgedreta;
 	GImage imatgeesquerra;
 	double[] extrems;
+	String tipus;
 
-	public Soldat(GImage a, GImage a2, int b, boolean c, int d, double[] e) {
+	public Soldat(GImage a, GImage a2, int b, boolean c, int d, double[] e, String z) {
 		imatgedreta = a;
 		imatgedreta.setSize(mida,mida);
 		imatgeesquerra = a2;
@@ -24,10 +25,27 @@ public abstract class Soldat {
 		vel = b;
 		vida = d;
 		extrems = e;
+		tipus = z;
 	}
 
-	public void Dispara(Soldat c) {
+	public Bala Dispara() {
+		return null;
+	}
 
+	public String getTipus() {
+		return tipus;
+	}
+
+	public void setTipus(String tipus) {
+		this.tipus = tipus;
+	}
+
+	public double[] getExtrems() {
+		return extrems;
+	}
+
+	public void setExtrems(double[] extrems) {
+		this.extrems = extrems;
 	}
 
 	public void canviaImatge() {
@@ -52,7 +70,6 @@ public abstract class Soldat {
 			this.restarVida();
 		}
 	}
-
 
 	public GImage getImatge() {
 		return imatge;

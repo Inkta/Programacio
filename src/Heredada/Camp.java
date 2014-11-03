@@ -73,30 +73,43 @@ public class Camp {
 		switch (tir) {
 			case 0:
 
-				for (int i=0; i < exerc2.size(); i++) {
-					for (int a=0; a < exerc1.size(); a++) {
+				for (int i=exerc2.size()-1; i >= 0; i--) {
+					for (int a=exerc1.size()-1 ; a > 0; a--) {
 						double num = Math.random();
 						exerc1.get(a).ComprovaMort(exerc2.get(i), num, pantalla);
-
-						if (exerc1.get(a).getVida() == 0) {
+						
+						if (exerc2.get(i).tipus.equals("bala") && exerc2.get(i).getVida() == 0) {
+							pantalla.remove(exerc2.get(i).getImatge());
+							exerc2.remove(i);
+						}
+						
+						if (exerc1.get(a).getVida() <= 0) {
 							pantalla.remove(exerc1.get(a).getImatge());
 							exerc1.remove(a);
-							a--;
 						}
+						
 					}
 				}
+				
+				
+				
 
 				break;
 			case 1:
 
-				for (int i=0; i < exerc1.size(); i++) {
-					for (int a=0; a < exerc2.size(); a++) {
+				for (int i=exerc1.size()-1 ; i > 0; i--) {
+					for (int a=exerc2.size()-1; a >= 0; a--) {
 						double num = Math.random();
 						exerc2.get(a).ComprovaMort(exerc1.get(i), num, pantalla);
-						if (exerc2.get(a).getVida() == 0) {
+						
+						if (exerc1.get(i).tipus.equals("bala") && exerc1.get(i).getVida() == 0) {
+							pantalla.remove(exerc1.get(i).getImatge());
+							exerc1.remove(i);
+						}
+						
+						if (exerc2.get(a).getVida() <= 0) {
 							pantalla.remove(exerc2.get(a).getImatge());
 							exerc2.remove(a);
-							a--;
 						}
 					}
 				}

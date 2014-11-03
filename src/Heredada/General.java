@@ -17,19 +17,19 @@ public class General {
 	public ArrayList<Soldat> afegirSoldats(ArrayList<Soldat> a, String imatge,String imatge2,String imatgeF,String imatge2F,String imatgeM,String imatge2M,String imatgeN,String imatge2N,int c, boolean direccio, int d, double[] extrems) {
 
 		for (int i=0; i < ninjas; i++) {
-			a.add(new SoldatNinja(new GImage(imatgeN),new GImage(imatge2N),c, direccio,d,extrems));
+			a.add(new SoldatNinja(new GImage(imatgeN),new GImage(imatge2N),c, direccio,d,extrems, "Ninja"));
 		}
 
 		for (int i=0; i < Normals; i++) {
-			a.add(new SoldatNormal(new GImage(imatge),new GImage(imatge2),c, direccio,d,extrems));
+			a.add(new SoldatNormal(new GImage(imatge),new GImage(imatge2),c, direccio,d,extrems, "Normal"));
 		}
 
 		for (int i=0; i < Forts; i++) {
-			a.add(new SoldatFort(new GImage(imatgeF),new GImage(imatge2F),c, direccio,d,extrems));
+			a.add(new SoldatFort(new GImage(imatgeF),new GImage(imatge2F),c, direccio,d,extrems, "Fort"));
 		}
 
 		for (int i=0; i < mags; i++) {
-			a.add(new SoldatMag(new GImage(imatgeM),new GImage(imatge2M),c, direccio,d,extrems));
+			a.add(new SoldatMag(new GImage(imatgeM),new GImage(imatge2M),c, direccio,d,extrems, "Mag"));
 		}
 
 
@@ -89,10 +89,17 @@ public class General {
 		int extremistes = 0; //contador per controlar si arriben al extrem del camp
 		for (int i=0; i < exerc.size(); i++) {
 			boolean extrem = exerc.get(i).Moure();
+			if (exerc.get(i).getTipus().equals("Ninja") && Math.random() > 0.99) {
+				exerc.add(exerc.get(i).Dispara());
+				exerc.get(exerc.size()-1).getImatge().setLocation(exerc.get(i).getImatge().getX(),exerc.get(i).getImatge().getY()+25);
+				pantalla.add(exerc.get(exerc.size()-1).getImatge());
+			}
+
 			if (!extrem) {
 				extremistes++;
 			}
 		}
+		
 
 		pantalla.pause(20);
 		return extremistes;

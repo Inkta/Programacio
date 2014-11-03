@@ -6,8 +6,8 @@ import acm.graphics.GRectangle;
 
 public class SoldatNormal extends Soldat{
 
-	public SoldatNormal(GImage a, GImage a2, int b, boolean c, int d, double[] e) {
-		super (a,a2,b,c,d,e);
+	public SoldatNormal(GImage a, GImage a2, int b, boolean c, int d, double[] e, String z) {
+		super (a,a2,b,c,d,e,z);
 	}
 
 	public boolean Moure(){

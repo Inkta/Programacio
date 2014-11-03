@@ -3,8 +3,8 @@ package Heredada;
 import acm.graphics.GImage;
 
 public class SoldatFort extends Soldat{
-	public SoldatFort(GImage a, GImage a2, int b, boolean c, int d, double[] e) {
-		super(a,a2,b,c,d,e);
+	public SoldatFort(GImage a, GImage a2, int b, boolean c, int d, double[] e, String z) {
+		super(a,a2,b,c,d,e,z);
 		this.setVida(5);
 	}
 
