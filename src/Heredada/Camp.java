@@ -48,14 +48,14 @@ public class Camp {
 
 		while (exerc1.size() != 0 && exerc2.size() != 0) {
 
-			if (General.Acorrer(exerc1, pantalla) == exerc1.size()) {
+			if (General.Acorrer(exerc1, pantalla) == exerc1.size() && !exerc1.get(0).getTipus().equals("Mag")) {
 				General.Perdre(exerc1, pantalla);
 				General.GireuVos(exerc1);
 				General.Reclutar(exerc1, pantalla);
 				Formacio(exerc1);
 			}
 
-			if (General.Acorrer(exerc2, pantalla) == exerc2.size()) {
+			if (General.Acorrer(exerc2, pantalla) == exerc2.size() && !exerc2.get(0).getTipus().equals("Mag")) {
 				General.Perdre(exerc2, pantalla);
 				General.GireuVos(exerc2);
 				General.Reclutar(exerc2, pantalla);
