@@ -72,9 +72,8 @@ public class Camp {
 		int tir = (int)(Math.random()*2);
 		switch (tir) {
 			case 0:
-
 				for (int i=exerc2.size()-1; i >= 0; i--) {
-					for (int a=exerc1.size()-1 ; a > 0; a--) {
+					for (int a=exerc1.size()-1 ; a >= 0; a--) {
 						double num = Math.random();
 						exerc1.get(a).ComprovaMort(exerc2.get(i), num, pantalla);
 						
@@ -87,17 +86,12 @@ public class Camp {
 							pantalla.remove(exerc1.get(a).getImatge());
 							exerc1.remove(a);
 						}
-						
 					}
 				}
 				
-				
-				
-
 				break;
 			case 1:
-
-				for (int i=exerc1.size()-1 ; i > 0; i--) {
+				for (int i=exerc1.size()-1 ; i >= 0; i--) {
 					for (int a=exerc2.size()-1; a >= 0; a--) {
 						double num = Math.random();
 						exerc2.get(a).ComprovaMort(exerc1.get(i), num, pantalla);
